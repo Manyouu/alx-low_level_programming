@@ -2,7 +2,7 @@
 
 /**
  * main - print _putchar
- * is written by manny
+ * is written by bwave
  * Return: 0
  */
 
@@ -19,4 +19,3 @@ _putchar('r');
 _putchar('\n');
 return (0);
 }
-
