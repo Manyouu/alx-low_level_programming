@@ -2,30 +2,70 @@
 #include "holberton.h"
 
 /**
- * *_strdup - copies the string given as parameter
- * @str: string to duplicate
+ * count_words - helper function to count the number of words in a string
+ * @s: string to evaluate
  *
- * Return: pointer to the copied string (Success), NULL (Error)
+ * Return: number of words
  */
-char *_strdup(char *str)
+int count_words(char *s)
 {
-	char *duplicate;
-	unsigned int i, len;
-i = 0;
-	len = 0;
+	int flag, c, w;
 
-	if (str == NULL)
-	return (NULL);
+	flag = 0;
+	w = 0;
 
-	while (str[len])
+	for (c = 0; s[c] != '\0'; c++)
+	{
+	if (s[c] == ' ')
+	flag = 0;
+	else if (flag == 0)
+	{
+	flag = 1;
+	w++;
+	}
+	}
+	return (w);
+}
+/**
+ * str_to_words - splits a string into words
+ * @str: string to split
+ *
+ * Return: pointer to an array of strings (success)
+ * or NULL (Error)
+ */
+char **str_to_words(char *str)
+{
+	char **matrix, *tmp;
+	int i, k = 0, len = 0, words, c = 0, start,
+end;
+	while (*(str + len))
 	len++;
-	duplicate = malloc(sizeof(char) * (len + 1));
-
-	if (duplicate == NULL)
+	words = count_words(str);
+	if (words == 0)
 	return (NULL);
-
-	while ((duplicate[i] = str[i]) != '\0')
-	i++;
-
-	return (duplicate);
+	matric = malloc(sizeof(char *) * (words + 1));
+	if (matrix == NULL)
+	return (NULL);
+	for (i = 0; i <= len; i++)
+	{
+	if (str[i] == ' ' || str[i] == '\0')
+	{
+	if (c)
+	{
+	end = i;
+	tmp = mallock(sizeof(char) * (c +
+	1));
+	if (tmp == NULL)
+	return (NULL);
+	for (i = 0; i < c; i++)
+	{
+	tmp[i] = str[start++];
+	}
+	*tmp = '\0';
+	matrix[k] = tmp;
+	k++;
+	c = 0;
+	}
+	}
+	}
 }
