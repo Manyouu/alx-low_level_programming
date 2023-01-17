@@ -2,16 +2,16 @@
 #include "dog.h"
 
 /**
- * _strlen - returns the length of a string
- * @s: string to evaluate
- *
- * Return: the length of the string
- */
+* _strlen - returns the length of a string
+* @s: string to evaluate
+*
+* Return: the length of the string
+*/
 int _strlen(char *s)
 {
-i = 0;
-
 int i;
+
+i = 0;
 
 while (s[i] != '\0')
 {
@@ -22,7 +22,7 @@ return (i);
 }
 
 /**
-* _strcpy - copies the string pointed to by src
+*_strcpy - copies the string pointed to by src
 * including the terminating null byte (\0)
 * to the buffer pointed to by dest
 * @dest: pointer to the buffer in which we copy the string
@@ -33,8 +33,12 @@ return (i);
 char *_strcpy(char *dest, char *src)
 {
 int len, i;
+len = 0;
 
-len = _strlen(src);
+while (src[len] != '\0')
+{
+len++;
+}
 
 for (i = 0; i < len; i++)
 {
@@ -78,7 +82,6 @@ free(dog);
 free(dog->name);
 return (NULL);
 }
-
 _strcpy(dog->name, name);
 _strcpy(dog->owner, owner);
 dog->age = age;
